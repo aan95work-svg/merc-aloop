@@ -1,4 +1,3 @@
-
 # MercaLoop — Development Progress
 
 **Last updated:** 26 November 2026
@@ -7,7 +6,11 @@
 
 **GitHub repository:** `https://github.com/aan95work-svg/merc-aloop.git`
 
-**Current development stage:** Foundation, architecture and database preparation.
+**Current branch:** `main`
+
+**Latest commit:** `5ae82e2` — `chore: initialize MercaLoop project foundation`
+
+**Current development stage:** Foundation completed, architecture documented, database connectivity verified, preparing actual database implementation.
 
 ---
 
@@ -24,6 +27,12 @@
 - [x] Created root folders `apps`, `docs` and `database/migrations`.
 - [x] Confirmed PowerShell is operating in the correct MercaLoop directory.
 - [x] Removed the temporary `ARCHIVE-README.txt` file.
+- [x] Created the first Git commit: `5ae82e2`.
+- [x] Successfully pushed the initial project foundation to GitHub.
+- [x] Configured the correct GitHub account `aan95work-svg` for this repository.
+- [x] Configured the local branch to track `origin/main`.
+- [x] Verified the repository is synchronized with GitHub.
+- [x] Verified Git reports a clean working tree after the initial push.
 
 ### Development environment
 
@@ -32,6 +41,7 @@
 - [x] Identified Windows PowerShell restriction on `npm.ps1`.
 - [x] Confirmed `npm.cmd` and `npx.cmd` work.
 - [x] Established the rule to use `npm.cmd` and `npx.cmd` in the current PowerShell environment.
+- [x] Confirmed Visual Studio Code can reopen the MercaLoop project independently.
 
 ### Frontend
 
@@ -73,9 +83,10 @@
 - [x] Obtained the PostgreSQL URI connection string.
 - [x] Created the local API environment file `apps/api/.env`.
 - [x] Stored the private database connection string locally.
-- [x] Successfully tested the PostgreSQL connection using Postgres.js.
-- [x] Verified the test query returned database `postgres` and role `postgres`.
-- [x] Confirmed database connectivity without creating or modifying business tables.
+- [x] Successfully tested PostgreSQL connectivity using Postgres.js.
+- [x] Verified the connection test returned database `postgres` and role `postgres`.
+- [x] Confirmed database connectivity using a read-only SQL query.
+- [x] Confirmed the connection test did not create or modify business database tables.
 
 ### Environment security
 
@@ -85,7 +96,11 @@
 - [x] Created `apps/api/.env.example` with safe placeholder values.
 - [x] Created the local `apps/api/.env` file.
 - [x] Verified Git ignores `apps/api/.env`.
-- [x] Kept actual database credentials out of shared documentation.
+- [x] Verified `apps/api/node_modules` is ignored.
+- [x] Verified `apps/web/node_modules` is ignored.
+- [x] Verified `apps/web/.next` is ignored.
+- [x] Verified `apps/api/dist` is ignored.
+- [x] Confirmed private database credentials were excluded from the initial Git commit.
 
 ### Drizzle configuration
 
@@ -96,6 +111,7 @@
 - [x] Configured migration output at the repository-level `database/migrations` directory.
 - [x] Configured Drizzle to read `DATABASE_URL` from the private environment file.
 - [x] Created `apps/api/src/db` directory.
+- [x] Verified the Drizzle configuration file.
 
 ### Product and business architecture
 
@@ -114,16 +130,20 @@
 
 ### Project documentation
 
-- [x] Updated the conceptual `PROJECT_SPEC.md` for the reseller and partner-store operating model.
+- [x] Updated `PROJECT_SPEC.md` for the reseller and partner-store operating model.
 - [x] Reworked `DATABASE_SCHEMA.md` to include reseller product entitlements, inventory lots, entitlement movements, partner stores, shop listings, orders, fulfilments and settlement allocations.
 - [x] Added explicit relationships between reseller entitlements, inventory lots and movements.
 - [x] Added rules requiring inventory lot counter updates and immutable movement records in the same database transaction.
 - [x] Connected shop listings to reseller product entitlements.
+- [x] Added inventory reservation and reconciliation requirements.
 - [x] Updated `WALLET_ACCOUNTING.md` with the complete Option A settlement process.
 - [x] Added partial order settlement, refunds, reconciliation and financial safeguards to wallet documentation.
 - [x] Updated `ARCHITECTURE.md` to reflect the actual technology choices and verified development progress.
-- [x] Verified key content in the revised documentation using PowerShell.
-- [x] Replaced the local `DEVELOPMENT_PROGRESS.md` with this updated progress record.
+- [x] Updated `MODEL_CHANGELOG.md` to record confirmed business decisions and architecture consequences.
+- [x] Updated the root `README.md` with installation, technology, connection and development instructions.
+- [x] Verified important documentation sections using PowerShell.
+- [x] Updated `DEVELOPMENT_PROGRESS.md` to reflect the actual completed milestones.
+- [x] Committed the updated foundation documents and initial project structure to GitHub in the initial commit.
 
 ---
 
@@ -167,11 +187,13 @@ merc-aloop/
 └── README.md
 ```
 
-This is the intended project organization. The actual folders and package files should be checked locally before the first Git commit.
+This represents the intended current project organization.
 
 The frontend and backend have separate package files.
 
 npm workspaces have not been configured.
+
+The database migration directory currently contains its `.gitkeep` placeholder. Actual migrations have not yet been generated.
 
 ---
 
@@ -194,7 +216,7 @@ npm workspaces have not been configured.
 | PostgreSQL driver | Postgres.js | Installed |
 | Environment loader | dotenv | Installed |
 | Testing | Vitest | Installed |
-| Version control | GitHub | Connected |
+| Version control | GitHub | Connected and synchronized |
 | Editor | Visual Studio Code | Installed |
 
 ---
@@ -203,12 +225,10 @@ npm workspaces have not been configured.
 
 ### Source control and documentation
 
-- [ ] Review root `README.md` and confirm its setup instructions.
-- [ ] Review `MODEL_CHANGELOG.md` against the final business decisions.
-- [ ] Perform final documentation consistency review.
-- [ ] Create the initial Git commit.
-- [ ] Push the initial MercaLoop foundation to GitHub.
-- [ ] Confirm no private credentials or generated build files are included in the commit.
+- [ ] Review the final documentation for consistency across all files.
+- [ ] Verify the current `git status` following any subsequent documentation changes.
+- [ ] Commit and push any documentation changes made after the initial commit.
+- [ ] Establish a regular commit/push practice for future development.
 
 ### Database implementation
 
@@ -363,7 +383,7 @@ Never paste connection strings, database passwords or service-role keys into pub
 
 ---
 
-## 6. Git and repository status
+## 6. Git and GitHub status
 
 GitHub repository:
 
@@ -377,19 +397,40 @@ Current branch:
 
 `main`
 
-Last reported Git status before the latest documentation updates showed untracked project files and no initial commit.
+Initial commit:
 
-**Initial commit and GitHub push remain pending.**
+`5ae82e2`
 
-Before committing:
+Commit message:
+
+`chore: initialize MercaLoop project foundation`
+
+Initial commit statistics:
+
+- 46 files changed.
+- 17,806 insertions.
+- Initial push completed successfully.
+- Remote tracking branch configured as `origin/main`.
+
+Last verified Git status:
+
+```text
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+```
+
+This status was verified immediately after the initial push. Any later documentation or code changes must be committed and pushed separately.
+
+Before every commit:
 
 - Review `git status`.
 - Confirm `.env` is ignored.
 - Confirm `.env.example` contains placeholders only.
-- Review root `.gitignore`.
-- Inspect all changed and untracked files.
+- Review all changed and untracked files.
 - Confirm `node_modules`, `.next`, `dist` and other generated folders are excluded.
-- Do not commit database credentials or private keys.
+- Never commit database credentials or private keys.
 
 ---
 
@@ -419,7 +460,7 @@ Connection driver:
 
 Postgres.js.
 
-The connection was tested with a read-only SQL query.
+The connection was tested using a read-only SQL query.
 
 The following have not yet been implemented:
 
